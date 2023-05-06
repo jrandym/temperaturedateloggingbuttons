@@ -1,3 +1,9 @@
+input.buttonsAB.onEvent(ButtonEvent.Click, function () {
+    light.showAnimation(light.rainbowAnimation, 100)
+    light.showRing(
+    `black yellow black yellow black black yellow black yellow black`
+    )
+})
 input.buttonA.onEvent(ButtonEvent.Click, function () {
     light.showRing(
     `black yellow black yellow black black yellow black yellow black`
@@ -14,16 +20,16 @@ input.buttonB.onEvent(ButtonEvent.Click, function () {
 })
 let running = 0
 light.showRing(
-`green black green black green green black green black green`
+`black yellow black yellow black black yellow black yellow black`
 )
 datalogger.setSeparator(LogSeparator.Comma)
-datalogger.setSampleInterval(1000)
+datalogger.setSampleInterval(100)
 datalogger.sendToConsole(true)
 datalogger.setEnabled(true)
-running = 1
+running = 0
 forever(function () {
     if (running == 1) {
-        datalogger.addValue("Temp", input.temperature(TemperatureUnit.Celsius))
+        datalogger.addValue("Temp", input.temperature(TemperatureUnit.Fahrenheit))
         datalogger.addRow()
     }
     pause(1000)
