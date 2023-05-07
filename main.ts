@@ -1,5 +1,7 @@
 input.buttonsAB.onEvent(ButtonEvent.Click, function () {
     light.showAnimation(light.rainbowAnimation, 100)
+    datalogger.addValue("NewData", 0)
+    datalogger.addRow()
     light.showRing(
     `black yellow black yellow black black yellow black yellow black`
     )
